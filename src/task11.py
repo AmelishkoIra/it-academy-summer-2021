@@ -8,11 +8,4 @@ for i in n:
         a = a + 2
     elif i == "0" or i == "6" or i == "9":
         a = a + 1
-
 print(a)
-
-
-
-
-
-
