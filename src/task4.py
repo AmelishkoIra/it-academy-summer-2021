@@ -6,5 +6,5 @@ for i in range(len(input_)):
         t = t + input_[i]
     elif input_[i].isupper() and input_[i] != " ":
         n = n + input_[i]
-print(len(t)," - строчные")
-print(len(n)," - прописные ")
+print(len(t), " - строчные")
+print(len(n), " - прописные ")
