@@ -6,12 +6,12 @@
 # то какое минимальное количество автобусов требуется для этого заказать.
 
 import math
-N = int(input("число детей "))
-M = int(input("число взрослых "))
-K = int(input("автобус вмещает человек "))
-a = (N + M) / K
-a_ = math.ceil(a)
-if M > 2 and M >= 2 * a_:
-    print("необходимо ", a_, "автобуса")
+number_children = int(input("число детей "))
+number_man = int(input("число взрослых "))
+bus_capacity = int(input("автобус вмещает человек "))
+men_on_bus = (number_children + number_man) / bus_capacity
+men_on_bus_ = math.ceil(men_on_bus)
+if number_man > 2 and number_man >= 2 * men_on_bus_:
+    print("необходимо ", men_on_bus_, "автобуса")
 else:
     print("поездка не состоится")
