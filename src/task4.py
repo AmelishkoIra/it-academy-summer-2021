@@ -5,9 +5,9 @@
 # Выходные данные - количество пар.
 # Важно: 1 1 1 - это 3 пары, 1 1 1 1 - это 6 пар
 
-str = input("Введите числа через пробел:")
-str_1 = str.split(" ")
-ist_of_number = [int(s) for s in str_1]
+input_num = input("Введите числа через пробел:")
+num = input_num.split(" ")
+ist_of_number = [int(s) for s in num]
 couples = 0
 for i in range(len(ist_of_number)):
     for j in range(i + 1, len(ist_of_number)):
