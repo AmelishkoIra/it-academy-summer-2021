@@ -5,7 +5,7 @@
 lst = [1, 2, 4, 5, 7, 7, 4]
 lst_new = ""
 for i in lst:
-    if lst.count(i) <= 1:
+    if lst.count(i) == 1:
         if str(i) not in lst_new:
             lst_new += str(i)
 print(lst_new)
