@@ -19,5 +19,5 @@ for i in languages:
             languages_all.append(i)
 print("Кол-во языков, которые знают все школьники:", len(languages_all))
 print("Языки, которые знают все школьники: ", languages_all)
-print("Кол-во языков,которые знает хотя бы один школьник: ", len(set_languages))
-print("Языки, которые знает хотя бы один школьник: ", set_languages)
+print("Кол-во языков,которые знает хотя бы один школьник:", len(set_languages))
+print("Языки, которые знает хотя бы один школьник:", set_languages)
