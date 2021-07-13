@@ -14,5 +14,5 @@ def input_number(a):
                 print(2 ** i)
                 break
 
-                
+
 input_number(10)
