@@ -3,7 +3,9 @@
 вызовов, не только текущий запуск программы).
 """
 
+
 def decorator(func):
+    
     count = []
     def wrapper(*args, **kwargs):
         nonlocal count
@@ -12,9 +14,11 @@ def decorator(func):
         return func(*args, **kwargs)
     return wrapper
 
+
 @decorator
 def func(x, y):
     return x + y
+
 
 print(func(2, 4))
 print(func(3, 4))
