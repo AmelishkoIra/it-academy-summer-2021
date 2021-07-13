@@ -3,6 +3,8 @@
 неповторяющихся целых чисел, отсортированных по возрастанию, которая этот
 список сворачивает.
 """
+
+
 def get_ranges(number_list):
 
     zone_one = list(filter(lambda x: x <= 4, number_list))
@@ -29,5 +31,6 @@ def get_ranges(number_list):
             print(zone_four)
         else:
             print(min(zone_four), "-", max(zone_four))
+
 
 get_ranges([2, 4, 10])
