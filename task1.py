@@ -60,6 +60,7 @@ def func():
 введенной строке. Учитывать только английские буквы.
 """
 
+
 def letter_count():
     print("Задача 2.4")
     string = input("Введите строку: ")
@@ -72,10 +73,12 @@ def letter_count():
             big_letters = big_letters + string[i]
     print(len(small_letters), " - строчные", len(big_letters), " - прописные ")
 
+    
 """
 Задача 2.5
 Выведите n-ое число Фибоначчи.
 """
+
 
 def fibonacci():
     print("Задача 2.5")
@@ -89,6 +92,7 @@ def fibonacci():
 Задача 2.6 
 Определите, является ли число палиндромом.
 """
+
 
 def palindrom():
     print("Задача 2.6")
@@ -121,7 +125,6 @@ def area_triangle():
         print("Неверные данные")
 
 
-
 """
 Задача 2.8
 Дана строка и нужно найти ее первое слово
@@ -134,7 +137,6 @@ def first_word():
     words_without_spaces = words.split()
     one_word = words_without_spaces[:1]
     print(one_word)
-
 
 
 """
@@ -152,7 +154,6 @@ def password_verification():
         print("Пароль подходит по длине")
     else:
         print("Пароль слишком длинный")
-
 
 
 """
@@ -173,7 +174,6 @@ def continuous_chain():
     print(len(chain_0))
 
 
-
 """
 Задача 2.11
 Число в правом столбце равно сумме "кругляшей", которые есть в цифрах числа,
@@ -192,7 +192,6 @@ def round_numbers():
         elif i == "0" or i == "6" or i == "9":
             round_number = round_number + 1
     print(round_number)
-
 
 
 """
@@ -218,7 +217,6 @@ def bus():
         print("необходимо ", number_bus_, "автобуса")
     else:
         print("поездка не состоится")
-
 
 
 """
@@ -292,7 +290,6 @@ def list_and_tuple():
     print(a, b, c)
 
 
-
 """
 Задача 3.4
 Дан список чисел. Посчитайте, сколько в нем пар элементов, равных друг другу.
@@ -313,7 +310,6 @@ def number_of_pairs():
             if ist_of_number[i] == ist_of_number[j]:
                 couples += 1
     print(couples, " пары чисел")
-
 
 
 """
@@ -366,7 +362,6 @@ def number_cube():
     print(cube_dictionary)
 
 
-
 """
 Задача 4.2
 Дан список стран и городов каждой страны. Затем даны названия городов. Для
@@ -393,7 +388,6 @@ def country_and_city():
         for key, value in all.items():
             if cities[j] in value:
                 print(key)
-
 
 
 """
@@ -475,7 +469,6 @@ def counting_different_words():
     print(len(set_text))
 
 
-
 """
 Задача 4.7
 Даны два натуральных числа. Вычислите их наибольший общий делитель при помощи
@@ -493,8 +486,6 @@ def euclidean_algorithm():
             b = b % a
     else:
         print("Наибольший общий делитель: ", a + b)
-
-
 
 
 def runner_one():
@@ -546,5 +537,6 @@ def runner_three(*args, **kwargs):
 
 func_one = euclidean_algorithm
 func_two = counting_different_words
+
 
 runner_three(func_one, func_two)
