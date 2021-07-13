@@ -5,8 +5,9 @@
 
 
 def decorator(func):
-    
+
     count = []
+    
     def wrapper(*args, **kwargs):
         nonlocal count
         count.append(func(*args, **kwargs))
