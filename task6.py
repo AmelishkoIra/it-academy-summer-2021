@@ -12,4 +12,3 @@ while 2 ** exponent <= number:
     else:
         break
 print("Наибольший общий делитель: ", divisor)
-
