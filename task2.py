@@ -3,6 +3,7 @@
 вызовов, не только текущий запуск программы).
 """
 
+
 def decorator(func):
 
     def wrapper(*args, **kwargs):
@@ -13,6 +14,7 @@ def decorator(func):
 
         return func(*args, **kwargs)
     return wrapper
+
 
 @decorator
 def func(x, y):
