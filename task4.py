@@ -9,31 +9,29 @@ ratings.txt – гистограмма рейтингов, years.txt – гис�
 from collections import Counter
 import json
 
-try:
-    with open("ratings.txt") as rating_list:
-        rating_list.read()
-except FileExistsError:
-    print("Файл не найден")
-
 result_movies = []
 result_years = []
 result_levels = []
+try:
+    with open('ratings.txt') as rating_txt:
+        for i, line in enumerate(rating_txt):
+            if 28 <= i <= 278:
+                result_levels.append((line[27:32]).strip())
+                result_years.append((line[-6:-2]).strip())
+                result_movies.append((line[32:-7]).strip())
 
-with open('ratings.txt') as rating_txt:
-    for i, line in enumerate(rating_txt):
-        if 28 <= i <= 278:
-            result_levels.append((line[27:32]).strip())
-            result_years.append((line[-6:-2]).strip())
-            result_movies.append((line[32:-7]).strip())
+    bar_graph_levels = Counter(result_levels)
+    bar_graph_years = Counter(result_years)
 
-bar_graph_levels = Counter(result_levels)
-bar_graph_years = Counter(result_years)
+    with open("top250_movies.txt", "w") as top250:
+        json.dump(result_movies, top250, indent="\n")
 
-with open("top250_movies.txt", "w") as top250:
-    json.dump(result_movies, top250, indent="\n")
+    with open("levels250.txt", "w") as levels:
+        json.dump(bar_graph_levels, levels, indent="\n")
 
-with open("levels250.txt", "w") as levels:
-    json.dump(bar_graph_levels, levels, indent="\n")
+    with open("years250.txt", "w") as years:
+        json.dump(bar_graph_years, years, indent="\n")
 
-with open("years250.txt", "w") as years:
-    json.dump(bar_graph_years, years, indent="\n")
+
+except FileNotFoundError:
+    print("Файл не найден")
