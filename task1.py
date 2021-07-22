@@ -1,8 +1,11 @@
+import math
+from string import ascii_letters
+
 """
 Оформите решение задач из прошлых домашних работ в функции. Напишите функцию
-runner. runner_one() – все фукнции вызываются по очереди,
-runner_two(‘func_name’) – вызывается только функцию func_name,
-runner_three(‘func’, ‘func1’...) - вызывает все переданные функции
+runner. runner() – все фукнции вызываются по очереди,
+runner(‘func_name’) – вызывается только функцию func_name,
+runner(‘func’, ‘func1’...) - вызывает все переданные функции
 """
 
 """
@@ -10,15 +13,12 @@ runner_three(‘func’, ‘func1’...) - вызывает все переда�
 Напишите программу, которая считает общую цену. Вводится M рублей и N копеек
 цена, а также количество S товара Посчитайте общую цену в рублях и
 копейках за L товаров.
+m - цена за товар, руб.; n - цена за товар, коп.; w - куплено товара.
 """
 
-
-def func_sum():
+def func_sum(m=1, n=1, w=1):
     print("Задача 2.1")
-    m = int(input("цена за товар, руб.:"))
-    n = int(input("цена за товар, коп.:"))
     p = int(m * 100 + n)
-    w = int(input("куплено товара:"))
     h = (w * p) // 100
     t = (w * p) % 100
     print('цена за', w, 'ед.товара', h, "руб.", t, 'коп.')
@@ -31,9 +31,8 @@ def func_sum():
 """
 
 
-def long_word():
+def long_word(words="Hello worlds"):
     print("Задача 2.2")
-    words = input("Введите предложение: ")
     long_words = words.split()
     print(max(long_words, key=len))
 
@@ -44,14 +43,13 @@ def long_word():
 """
 
 
-def func():
+def del_space(string="Hello world"):
     print("Задача 2.3")
-    string = input("Введите строку: ")
     string_new = ""
     for i in range(len(string)):
         if string_new.find(string[i]) == -1 and string[i] != " ":
             string_new = string_new + string[i]
-    return (string_new)
+    print(string_new)
 
 
 """
@@ -60,10 +58,8 @@ def func():
 введенной строке. Учитывать только английские буквы.
 """
 
-
-def letter_count():
+def letter_count(string="Hello world"):
     print("Задача 2.4")
-    string = input("Введите строку: ")
     small_letters = ""
     big_letters = ""
     for i in range(len(string)):
@@ -73,30 +69,34 @@ def letter_count():
             big_letters = big_letters + string[i]
     print(len(small_letters), " - строчные", len(big_letters), " - прописные ")
 
-
 """
 Задача 2.5
 Выведите n-ое число Фибоначчи.
 """
 
-
-def fibonacci():
+def fibonacci(n=1):
     print("Задача 2.5")
-    n = int(input("Введите число: "))
-    if n in (2, 3):
-        return 1
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    if n < 2:
+        print("Число Фибоначчи:", str(n - 1))
+    else:
+        i = 2
+        f = [0, 1, 1]
+        while i < n:
+            f[2] = f[0] + f[1]
+            f[0] = f[1]
+            f[1] = f[2]
+            i += 1
+        print("Число Фибоначчи:", str(f[2]))
 
 
 """
-Задача 2.6
+Задача 2.6 
 Определите, является ли число палиндромом.
 """
 
-
-def palindrom():
+def palindrom(nomer=1):
     print("Задача 2.6")
-    nomer_ = input("Введите число: ")
+    nomer_ = str(nomer)
     nomer_new = nomer_[::-1]
     if nomer_ == nomer_new:
         print("Введенное число палиндром")
@@ -112,11 +112,8 @@ def palindrom():
 """
 
 
-def area_triangle():
+def area_triangle(a=1, b=1, c=1):
     print("Задача 2.7")
-    a = int(input("a = "))
-    b = int(input("b = "))
-    c = int(input("c = "))
     p = (a + b + c) / 2
     s = (p * (p - a) * (p - b) * (p - c)) ** (0.5)
     if a + b > c and a + c > b and b + c > a:
@@ -131,9 +128,8 @@ def area_triangle():
 """
 
 
-def first_word():
+def first_word(words="Hello world"):
     print("Задача 2.8")
-    words = str(input("Введите предложение"))
     words_without_spaces = words.split()
     one_word = words_without_spaces[:1]
     print(one_word)
@@ -146,14 +142,14 @@ def first_word():
 """
 
 
-def password_verification():
+def password_verification(password="1234"):
     print("Задача 2.9")
-    password = input("Введите пароль")
     n = len(password)
     if n <= 6:
         print("Пароль подходит по длине")
     else:
         print("Пароль слишком длинный")
+
 
 
 """
@@ -163,15 +159,15 @@ def password_verification():
 """
 
 
-def continuous_chain():
+def continuous_chain(chain_10="000110"):
     print("Задача 2.10")
-    chain_10 = input("Введите строку из 0 и 1: ")
     chain_1 = chain_10.split("1")
     chain_0 = "0"
     for i in chain_1:
         if len(i) > len(chain_0):
             chain_0 = i
     print(len(chain_0))
+
 
 
 """
@@ -182,9 +178,8 @@ def continuous_chain():
 """
 
 
-def round_numbers():
+def round_numbers(number="146"):
     print("Задача 2.11")
-    number = input("Введите число ")
     round_number = 0
     for i in number:
         if i == "8":
@@ -192,6 +187,7 @@ def round_numbers():
         elif i == "0" or i == "6" or i == "9":
             round_number = round_number + 1
     print(round_number)
+
 
 
 """
@@ -205,12 +201,9 @@ def round_numbers():
 """
 
 
-def bus():
-    import math
+def bus(children=2, men=3, bus_capacity=7):
+
     print("Задача 2.12")
-    children = int(input("число детей "))
-    men = int(input("число взрослых "))
-    bus_capacity = int(input("автобус вмещает человек "))
     number_bus = (children + men) / bus_capacity
     number_bus_ = math.ceil(number_bus)
     if men > 2 and men >= 2 * number_bus_:
@@ -227,9 +220,9 @@ def bus():
 """
 
 
-def fizzbuzz():
+def fizzbuzz(number=1):
     print("Задача 3.1")
-    number = int(input("Введите число "))
+    #number = int(input("Введите число "))
     if int(number) % 3 == 0 and int(number) % 5 == 0:
         print("FizzBuzz")
     elif int(number) % 3 == 0:
@@ -242,7 +235,7 @@ def fizzbuzz():
 
 """
 Задача 3.2
-Используйте генератор списков чтобы получить следующий:
+Используйте генератор списков чтобы получить следующий: 
 ['ab', 'ac', 'ad', 'bb', 'bc', 'bd']. Используйте на предыдущий список slice
 чтобы получить следующий: ['ab', 'ad', 'bc']. Используйте генератор списков
 чтобы получить следующий ['1a', '2a', '3a', '4a']. Одной строкой удалите
@@ -252,14 +245,11 @@ def fizzbuzz():
 """
 
 
-def gen_list():
+def gen_list(lst="ab", lst1="bcd", lst3="1234"):
     print("Задача 3.2")
-    lst = "ab"
-    lst1 = "bcd"
     lst2 = [i + j for i in lst for j in lst1]
     print(lst2)
     print(lst2[::2])
-    lst3 = "1234"
     lst4 = [i + "a" for i in lst3]
     print(lst4)
     lst4.remove("2a")
@@ -279,15 +269,14 @@ def gen_list():
 """
 
 
-def list_and_tuple():
-    list1 = ["a", "b", "c"]
+def list_and_tuple(list1=["a", "b", "c"], tpl=("a", "b", "c")):
     tpl1 = tuple(list1)
     print(tpl1, type(tpl1))
-    tpl = ("a", "b", "c")
     lst = list(tpl)
     print(lst, type(lst))
     (a, b, c) = ("a", 2, "python")
     print(a, b, c)
+
 
 
 """
@@ -299,9 +288,8 @@ def list_and_tuple():
 """
 
 
-def number_of_pairs():
+def number_of_pairs(number="12 33 12"):
     print("Задача 3.4")
-    number = input("Введите числа через пробел:")
     number_without_spaces = number.split(" ")
     ist_of_number = [int(s) for s in number_without_spaces]
     couples = 0
@@ -312,6 +300,9 @@ def number_of_pairs():
     print(couples, " пары чисел")
 
 
+
+
+
 """
 Задача 3.5
 Дан список. Выведите те его элементы, которые встречаются в списке только один
@@ -319,9 +310,8 @@ def number_of_pairs():
 """
 
 
-def meet_once_element():
+def meet_once_element(lst=[1, 2, 4, 5, 7, 7, 4]):
     print("Задача 3.5")
-    lst = [1, 2, 4, 5, 7, 7, 4]
     lst_new = ""
     for i in lst:
         if lst.count(i) <= 1:
@@ -339,9 +329,8 @@ def meet_once_element():
 """
 
 
-def separation_zero():
+def separation_zero(lst=[1, 2, 4, 0, 5, 7, 7, 0, 4]):
     print("Задача 3.6")
-    lst = [1, 2, 4, 0, 5, 7, 7, 0, 4]
     for i in lst:
         if i == 0:
             lst.remove(i)
@@ -362,6 +351,7 @@ def number_cube():
     print(cube_dictionary)
 
 
+
 """
 Задача 4.2
 Дан список стран и городов каждой страны. Затем даны названия городов. Для
@@ -371,23 +361,33 @@ def number_cube():
 следующей строке записано число M, далее идут M запросов — названия каких-то M
 городов, перечисленных выше. Выходные данные Для каждого из запроса выведите
 название страны, в котором находится данный город.
+
+
 """
 
+def country_and_city(list_country_and_cities=None, city_search=None):
 
-def country_and_city():
     print("Задача 4.2")
-    all = {}
-    for i in range(int(input("Число стран: "))):
-        all_ = input("Введите название страны и три ее города: ")
-        country, *city = all_.split()
-        all[country] = city
-    cities = []
-    for j in range(int(input("Число городов: "))):
-        city = input("Введите название городов: ")
-        cities.append(city)
-        for key, value in all.items():
-            if cities[j] in value:
-                print(key)
+
+    if city_search is None:
+        city_search = ["Moscow", "Odessa"]
+
+    if list_country_and_cities is None:
+        list_country_and_cities = ["Russia Moscow Petersburg Novgorod Kaluga",
+                                   "Ukraine Kiev, Lviv, Odessa"]
+    dict_country_and_cities = {}
+    for str_country_and_cities in list_country_and_cities:
+        list_cities = []
+        str_country_and_cities = str_country_and_cities.split()
+        for cities_of_the_country in str_country_and_cities[1:]:
+            list_cities.append(cities_of_the_country)
+        dict_country_and_cities[str_country_and_cities[0]] = list_cities
+    countries = ""
+    for i in city_search:
+        for country, cities_of_the_country in dict_country_and_cities.items():
+            if i in cities_of_the_country:
+                countries += country + "\n"
+    print(countries)
 
 
 """
@@ -397,10 +397,8 @@ def country_and_city():
 """
 
 
-def compare_lists():
+def compare_lists(list_one={4, 67, 89, 23, 11},list_two={5, 4, 89, 25, 11}):
     print("Задача 4.3")
-    list_one = {1, 3, 4, 67, 89, 23, 11}
-    list_two = {2, 5, 4, 89, 25, 11, 13}
     compare = list_one & list_two
     print(len(compare))
 
@@ -412,10 +410,9 @@ def compare_lists():
 """
 
 
-def compare_lists_difference():
+def compare_lists_difference(list_one={4, 67, 89, 23, 11},
+                             list_two={5, 4, 89, 25, 11}):
     print("Задача 4.4")
-    list_one = {1, 3, 4, 67, 89, 23, 11}
-    list_two = {2, 5, 4, 89, 25, 11, 13}
     compare_difference = list_one ^ list_two
     print(len(compare_difference))
 
@@ -424,27 +421,20 @@ def compare_lists_difference():
 Задача 4.5
 Каждый из N школьников некоторой школы знает Mi языков. Определите, какие языки
 знают все школьники и языки, которые знает хотя бы один из школьников.
+Дано: Три школьника. Языки первого: en, bel, rus. Языки второго: en, bel, gen.
+Языки третьего: en, bel, rus, ger.
 """
 
 
-def children_and_languages():
+def children_and_languages(languages_child_one={"en", "bel", "rus"},
+                           languages_child_two={"en", "bel", "ger"},
+                           languages_child_three={"en", "bel", "ger", "rus"},
+                           *args, **kwargs):
     print("Задача 4.5")
-    children = int(input("Количество школьников: "))
-    languages = []
-    for i in range(children):
-        if i <= children:
-            languages_num = int(
-                input(f"Количество языков школьника {i + 1}: "))
-            for j in range(languages_num):
-                if j <= languages_num:
-                    languag = input("Введите языки: ")
-                    languages.append(languag)
-    set_languages = set(languages)
-    languages_all = []
-    for i in languages:
-        if languages.count(i) == children:
-            if i not in languages_all:
-                languages_all.append(i)
+    languages_all = languages_child_one & languages_child_two\
+                    & languages_child_three
+    set_languages = languages_child_one | languages_child_two |\
+                    languages_child_three
     print("Кол-во языков, которые знают все школьники:", len(languages_all))
     print("Языки, которые знают все школьники: ", languages_all)
     print("Кол-во языков,которые знает хотя бы один школьник: ",
@@ -461,12 +451,13 @@ def children_and_languages():
 """
 
 
-def counting_different_words():
+def counting_different_words(text="Hello world"):
     print("Задача 4.6")
-    text = input("Text: ")
+    #text = input("Text: ")
     text_without_spaces = text.split(" ")
     set_text = set(text_without_spaces)
     print(len(set_text))
+
 
 
 """
@@ -476,9 +467,9 @@ def counting_different_words():
 """
 
 
-def euclidean_algorithm():
-    a = int(input("Первое число "))
-    b = int(input("Второе число "))
+def euclidean_algorithm(a=1, b=2):
+    #a = int(input("Первое число "))
+    #b = int(input("Второе число "))
     while a != 0 and b != 0:
         if a > b:
             a = a % b
@@ -486,56 +477,31 @@ def euclidean_algorithm():
             b = b % a
     else:
         print("Наибольший общий делитель: ", a + b)
+        
+
+names_in_module = dir()
+list_names_of_functions = []
+for name in names_in_module:
+    if name.startswith("__") and name.endswith("__"):
+        continue
+    elif name == "ascii_letters":
+        continue
+    elif name == "math":
+        continue
+    else:
+        list_names_of_functions.append(name)
 
 
-def runner_one():
-    func_sum()
-    long_word()
-    func()
-    letter_count()
-    fibonacci()
-    palindrom()
-    area_triangle()
-    first_word()
-    password_verification()
-    continuous_chain()
-    round_numbers()
-    bus()
-    fizzbuzz()
-    gen_list()
-    list_and_tuple()
-    number_of_pairs()
-    meet_once_element()
-    separation_zero()
-    number_cube()
-    country_and_city()
-    compare_lists()
-    compare_lists_difference()
-    children_and_languages()
-    counting_different_words()
-    euclidean_algorithm()
-    print("Функции выполнены")
+def runner(*args):
+    if not args:
+        for func_name in list_names_of_functions:
+            start = globals()[func_name]
+            start()
+    for func_name in args:
+        start = globals()[func_name]
+        start()
 
 
-runner_one()
-
-
-def runner_two(func):
-    func()
-    print("Функция выполнена")
-
-
-runner_two(continuous_chain)
-
-
-def runner_three(*args, **kwargs):
-    func_one()
-    func_two()
-    print("Функции выполнены")
-
-
-func_one = euclidean_algorithm
-func_two = counting_different_words
-
-
-runner_three(func_one, func_two)
+runner()
+runner("bus")
+runner("func_sum", "del_space")
