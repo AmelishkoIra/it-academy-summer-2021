@@ -3,18 +3,16 @@
 вызовов, не только текущий запуск программы).
 """
 
-
 def decorator(func):
 
-    count = []
-
     def wrapper(*args, **kwargs):
-        nonlocal count
-        count.append(func(*args, **kwargs))
-        print("Все результаты вызова функции", count)
+        result_func = func(*args, **kwargs)
+        save_data = open("save_data.txt", "a")
+        save_data.write(str(result_func) + "\n")
+        save_data.close()
+
         return func(*args, **kwargs)
     return wrapper
-
 
 @decorator
 def func(x, y):
