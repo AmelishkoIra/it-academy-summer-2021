@@ -71,7 +71,7 @@ def letter_count(string="Hello world"):
             big_letters = big_letters + string[i]
     print(len(small_letters), " - строчные", len(big_letters), " - прописные ")
 
-    
+
 """
 Задача 2.5
 Выведите n-ое число Фибоначчи.
@@ -94,7 +94,7 @@ def fibonacci(n=1):
 
 
 """
-Задача 2.6 
+Задача 2.6
 Определите, является ли число палиндромом.
 """
 
@@ -224,7 +224,6 @@ def bus(children=2, men=3, bus_capacity=7):
 
 def fizzbuzz(number=1):
     print("Задача 3.1")
-    #number = int(input("Введите число "))
     if int(number) % 3 == 0 and int(number) % 5 == 0:
         print("FizzBuzz")
     elif int(number) % 3 == 0:
@@ -237,7 +236,7 @@ def fizzbuzz(number=1):
 
 """
 Задача 3.2
-Используйте генератор списков чтобы получить следующий: 
+Используйте генератор списков чтобы получить следующий:
 ['ab', 'ac', 'ad', 'bb', 'bc', 'bd']. Используйте на предыдущий список slice
 чтобы получить следующий: ['ab', 'ad', 'bc']. Используйте генератор списков
 чтобы получить следующий ['1a', '2a', '3a', '4a']. Одной строкой удалите
@@ -362,13 +361,10 @@ def number_cube():
 
 """
 
-def country_and_city(list_country_and_cities=None, city_search=None):
-
+def country_and_city(list_country_and_cities=None, city_search=None):    
     print("Задача 4.2")
-
     if city_search is None:
         city_search = ["Moscow", "Odessa"]
-
     if list_country_and_cities is None:
         list_country_and_cities = ["Russia Moscow Petersburg Novgorod Kaluga",
                                    "Ukraine Kiev, Lviv, Odessa"]
@@ -450,7 +446,6 @@ def children_and_languages(languages_child_one={"en", "bel", "rus"},
 
 def counting_different_words(text="Hello world"):
     print("Задача 4.6")
-    #text = input("Text: ")
     text_without_spaces = text.split(" ")
     set_text = set(text_without_spaces)
     print(len(set_text))
@@ -464,8 +459,6 @@ def counting_different_words(text="Hello world"):
 
 
 def euclidean_algorithm(a=1, b=2):
-    #a = int(input("Первое число "))
-    #b = int(input("Второе число "))
     while a != 0 and b != 0:
         if a > b:
             a = a % b
