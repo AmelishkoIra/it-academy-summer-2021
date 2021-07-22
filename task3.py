@@ -4,6 +4,7 @@
 список сворачивает.
 """
 
+
 def get_ranges(number_list):
 
     zone_one = list(filter(lambda x: x <= 4, number_list))
@@ -29,7 +30,7 @@ def get_ranges(number_list):
             a = a + zone_three
         else:
             three = [f"{min(zone_three)} - {max(zone_three)}"]
-            print(min(zone_three), "-", max(zone_three))
+            a = a + three
     if len(zone_four) != 0:
         if len(zone_four) == 1:
             a = a + zone_four
