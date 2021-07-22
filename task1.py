@@ -1,5 +1,5 @@
 import math
-from string import ascii_letters
+
 
 """
 Оформите решение задач из прошлых домашних работ в функции. Напишите функцию
@@ -15,6 +15,7 @@ runner(‘func’, ‘func1’...) - вызывает все переданны�
 копейках за L товаров.
 m - цена за товар, руб.; n - цена за товар, коп.; w - куплено товара.
 """
+
 
 def func_sum(m=1, n=1, w=1):
     print("Задача 2.1")
@@ -58,6 +59,7 @@ def del_space(string="Hello world"):
 введенной строке. Учитывать только английские буквы.
 """
 
+
 def letter_count(string="Hello world"):
     print("Задача 2.4")
     small_letters = ""
@@ -69,10 +71,12 @@ def letter_count(string="Hello world"):
             big_letters = big_letters + string[i]
     print(len(small_letters), " - строчные", len(big_letters), " - прописные ")
 
+    
 """
 Задача 2.5
 Выведите n-ое число Фибоначчи.
 """
+
 
 def fibonacci(n=1):
     print("Задача 2.5")
@@ -93,6 +97,7 @@ def fibonacci(n=1):
 Задача 2.6 
 Определите, является ли число палиндромом.
 """
+
 
 def palindrom(nomer=1):
     print("Задача 2.6")
@@ -151,7 +156,6 @@ def password_verification(password="1234"):
         print("Пароль слишком длинный")
 
 
-
 """
 Задача 2.10
 Требуется найти самую длинную непрерывную цепочку нулей в
@@ -167,7 +171,6 @@ def continuous_chain(chain_10="000110"):
         if len(i) > len(chain_0):
             chain_0 = i
     print(len(chain_0))
-
 
 
 """
@@ -187,7 +190,6 @@ def round_numbers(number="146"):
         elif i == "0" or i == "6" or i == "9":
             round_number = round_number + 1
     print(round_number)
-
 
 
 """
@@ -278,7 +280,6 @@ def list_and_tuple(list1=["a", "b", "c"], tpl=("a", "b", "c")):
     print(a, b, c)
 
 
-
 """
 Задача 3.4
 Дан список чисел. Посчитайте, сколько в нем пар элементов, равных друг другу.
@@ -298,9 +299,6 @@ def number_of_pairs(number="12 33 12"):
             if ist_of_number[i] == ist_of_number[j]:
                 couples += 1
     print(couples, " пары чисел")
-
-
-
 
 
 """
@@ -349,7 +347,6 @@ def number_cube():
     print("Задача 4.1")
     cube_dictionary = {element: element ** 3 for element in range(1, 21)}
     print(cube_dictionary)
-
 
 
 """
@@ -459,7 +456,6 @@ def counting_different_words(text="Hello world"):
     print(len(set_text))
 
 
-
 """
 Задача 4.7
 Даны два натуральных числа. Вычислите их наибольший общий делитель при помощи
@@ -484,8 +480,6 @@ list_names_of_functions = []
 for name in names_in_module:
     if name.startswith("__") and name.endswith("__"):
         continue
-    elif name == "ascii_letters":
-        continue
     elif name == "math":
         continue
     else:
@@ -501,7 +495,7 @@ def runner(*args):
         start = globals()[func_name]
         start()
 
-
+        
 runner()
 runner("bus")
 runner("func_sum", "del_space")
