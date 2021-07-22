@@ -14,5 +14,5 @@ def max_divisor(number):
             break
     print("Наибольший общий делитель: ", divisor)
 
-    
+
 max_divisor(10)
