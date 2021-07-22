@@ -360,7 +360,7 @@ def number_cube():
 """
 
 
-def country_and_city(list_country_and_cities=None, city_search=None):    
+def country_and_city(list_country_and_cities=None, city_search=None):
     print("Задача 4.2")
     if city_search is None:
         city_search = ["Moscow", "Odessa"]
