@@ -357,9 +357,8 @@ def number_cube():
 следующей строке записано число M, далее идут M запросов — названия каких-то M
 городов, перечисленных выше. Выходные данные Для каждого из запроса выведите
 название страны, в котором находится данный город.
-
-
 """
+
 
 def country_and_city(list_country_and_cities=None, city_search=None):    
     print("Задача 4.2")
@@ -390,7 +389,7 @@ def country_and_city(list_country_and_cities=None, city_search=None):
 """
 
 
-def compare_lists(list_one={4, 67, 89, 23, 11},list_two={5, 4, 89, 25, 11}):
+def compare_lists(list_one={4, 67, 89, 23, 11}, list_two={5, 4, 89, 25, 11}):
     print("Задача 4.3")
     compare = list_one & list_two
     print(len(compare))
@@ -425,9 +424,9 @@ def children_and_languages(languages_child_one={"en", "bel", "rus"},
                            *args, **kwargs):
     print("Задача 4.5")
     languages_all = languages_child_one & languages_child_two\
-                    & languages_child_three
+        & languages_child_three
     set_languages = languages_child_one | languages_child_two |\
-                    languages_child_three
+        languages_child_three
     print("Кол-во языков, которые знают все школьники:", len(languages_all))
     print("Языки, которые знают все школьники: ", languages_all)
     print("Кол-во языков,которые знает хотя бы один школьник: ",
@@ -466,7 +465,7 @@ def euclidean_algorithm(a=1, b=2):
             b = b % a
     else:
         print("Наибольший общий делитель: ", a + b)
-        
+
 
 names_in_module = dir()
 list_names_of_functions = []
@@ -488,7 +487,7 @@ def runner(*args):
         start = globals()[func_name]
         start()
 
-        
+
 runner()
 runner("bus")
 runner("func_sum", "del_space")
