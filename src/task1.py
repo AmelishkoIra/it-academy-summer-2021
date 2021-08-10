@@ -10,6 +10,7 @@ class Payment_water_supply_sewerage:
     def __init__(self, number_of_people, hotwater1, hotwater2, coldwater1,
                  coldwater2):
         """Keyword arguments:
+        
         number_of_people -- количество людей зарегистрированных в квартире,
         hotwater1 -- показания счетчика горячей воды за прошлый месяц,
         hotwater2 -- показания счетчика горячей воды за текущий месяц,
@@ -29,7 +30,8 @@ class Payment_water_supply_sewerage:
         # расчет максимального объема воды за месяц, который могут использовать
         # жильцы по льготной цене
         self.preferential_volume = self.norm_water_per_person * \
-                                   self.number_of_people
+            self.number_of_people
+        
     def payment_coldwater(self):
         """Расчет стоимости за холодное водоснабжение.
 
@@ -47,12 +49,9 @@ class Payment_water_supply_sewerage:
                                       preferential_price_coldwater, 2)
         else:
             payment_coldwater = round(self.preferential_volume * \
-                                      preferential_price_coldwater + \
-                                      (self.water_volume - \
-                                      self.preferential_volume) \
-                                      * full_price_coldwater, 2)
+                preferential_price_coldwater + (self.water_volume - \
+                self.preferential_volume) * full_price_coldwater, 2)
         print(f"Плата за холодное водоснабжение: {payment_coldwater} руб.")
-
 
     def payment_hotwater(self):
         """Расчет стоимости за холодное водоснабжение.
@@ -66,7 +65,6 @@ class Payment_water_supply_sewerage:
         payment_hotwater = round((self.hotwater2 - self.hotwater1) * \
                                  price_hotwater, 2)
         print(f"Плата за горячее водоснабжение: {payment_hotwater} руб.")
-
 
     def paymant_sewerage(self):
         """Расчет стоимости водоотведения.
@@ -92,7 +90,6 @@ class Payment_water_supply_sewerage:
                                    full_price_sewerage, 2)
         print(f"Плата за водоотведение: {payment_sewers} руб.")
 
-
     def all_payment_water(self):
         """Расчет общей стоимости услуг водоканала.
 
@@ -108,7 +105,6 @@ class Payment_water_supply_sewerage:
 class Payment_gas_supple:
     """Расчет стоимости услуг газоснабжения населения."""
 
-
     def __init__(self, meter1_gas, meter2_gas):
         """
         Keyword arguments:
@@ -117,7 +113,6 @@ class Payment_gas_supple:
         """
         self.meter1_gas = meter1_gas
         self.meter2_gas = meter2_gas
-
 
     def payment_gas(self):
         """Расчет стоимости газаснабжения.
@@ -134,7 +129,6 @@ class Payment_gas_supple:
 class Payment_electricity:
     """Расчет стоимости использования электроэнергии населением."""
 
-
     def __init__(self, meter1_elecric, meter2_elecric):
         """
         Keyword arguments:
@@ -143,7 +137,6 @@ class Payment_electricity:
         """
         self.meter1_elecric = meter1_elecric
         self.meter2_elecric = meter2_elecric
-
 
     def payment_electricity(self):
         """Расчет стоимости использования электроэнергии.
