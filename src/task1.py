@@ -45,12 +45,14 @@ class Payment_water_supply_sewerage:
         full_price_coldwater = 1.1
         global payment_coldwater
         if self.water_volume < self.preferential_volume:
-            payment_coldwater = round((self.water_volume * \
-                                      preferential_price_coldwater), 2)
+            payment_coldwater = self.water_volume * \
+                preferential_price_coldwater
+            payment_coldwater = round(payment_coldwater, 2)
         else:
-            payment_coldwater = round(self.preferential_volume * \
+            payment_coldwater = self.preferential_volume * \
                 preferential_price_coldwater + (self.water_volume - \
-                self.preferential_volume) * full_price_coldwater, 2)
+                self.preferential_volume) * full_price_coldwater
+            payment_coldwater = round(payment_coldwater, 2)
         print(f"Плата за холодное водоснабжение: {payment_coldwater} руб.")
 
     def payment_hotwater(self):
@@ -62,8 +64,8 @@ class Payment_water_supply_sewerage:
         """
         price_hotwater = 1.65
         global payment_hotwater
-        payment_hotwater = round((self.hotwater2 - self.hotwater1) * \
-                                 price_hotwater, 2)
+        payment_hotwater = (self.hotwater2 - self.hotwater1) * price_hotwater
+        payment_hotwater = round(payment_hotwater, 2)
         print(f"Плата за горячее водоснабжение: {payment_hotwater} руб.")
 
     def paymant_sewerage(self):
@@ -80,14 +82,14 @@ class Payment_water_supply_sewerage:
         full_price_sewerage = 0.63
         global payment_sewers
         if self.water_volume < self.preferential_volume:
-            payment_sewers = round(self.water_volume * \
-                                   preferential_price_sewerage, 2)
+            payment_sewers = self.water_volume * \
+                preferential_price_sewerage
+            payment_sewers = round(payment_sewers, 2)
         else:
-            payment_sewers = round(self.preferential_volume * \
-                                   preferential_price_sewerage + \
-                                   (self.water_volume - \
-                                   self.preferential_volume) * \
-                                   full_price_sewerage, 2)
+            payment_sewers = self.preferential_volume * \
+                preferential_price_sewerage + (self.water_volume - \
+                self.preferential_volume) * full_price_sewerage
+            payment_sewers = round(payment_sewers, 2)
         print(f"Плата за водоотведение: {payment_sewers} руб.")
 
     def all_payment_water(self):
@@ -97,8 +99,9 @@ class Payment_water_supply_sewerage:
         в руб.
         """
 
-        all_payment_water_sewers = round(payment_coldwater + \
-                                         payment_hotwater + payment_sewers, 2)
+        all_payment_water_sewers = payment_coldwater + payment_hotwater + \
+            payment_sewers
+        all_payment_water_sewer = round(all_payment_water_sewer, 2)
         print(f"Плата за услуги водоканала: {all_payment_water_sewers} руб.")
 
 
@@ -106,8 +109,8 @@ class Payment_gas_supple:
     """Расчет стоимости услуг газоснабжения населения."""
 
     def __init__(self, meter1_gas, meter2_gas):
-        """
-        Keyword arguments:
+        """Keyword arguments:
+
         meter1_gas -- показания счетчика газаснабжения за прошлый месяц,
         meter2_gas -- показания счетчика газаснабжения за текущий месяц.
         """
@@ -121,8 +124,8 @@ class Payment_gas_supple:
         payment_gas -- стоимость газаснабжения в руб.
         """
         price_gas = 0.5082
-        payment_gas = round((self.meter2_gas - self.meter1_gas) * \
-                            price_gas, 2)
+        payment_gas = (self.meter2_gas - self.meter1_gas) * price_gas
+        payment_gas = round(payment_gas, 2)
         print(f"Плата за газоснабжение: {payment_gas} руб.")
 
 
@@ -130,8 +133,8 @@ class Payment_electricity:
     """Расчет стоимости использования электроэнергии населением."""
 
     def __init__(self, meter1_elecric, meter2_elecric):
-        """
-        Keyword arguments:
+        """Keyword arguments:
+
         meter1_elecric -- показания счетчика электроэнергии за прошлый месяц,
         meter2_elecric -- показания счетчика электроэнергии за текущий месяц.
         """
@@ -145,8 +148,9 @@ class Payment_electricity:
         payment_gas -- стоимость электроэнергии в руб.
         """
         price_electricity = 0.23
-        payment_elec = round((self.meter2_elecric - \
-                              self.meter1_elecric) * price_electricity, 2)
+        payment_elec = (self.meter2_elecric - self.meter1_elecric) * \
+            price_electricity
+        payment_ele = round(payment_ele, 2)
         print(f"Плата за электроэнергию: {payment_elec} руб.")
 
 
