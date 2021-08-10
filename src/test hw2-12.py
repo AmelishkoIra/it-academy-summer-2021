@@ -26,4 +26,3 @@ class Test_bus(unittest.TestCase):
     def test_errors(self, input_data1, input_data2, input_data3, expected):
         with self.assertRaises(expected):
             task1_hw2.bus(input_data1, input_data2, input_data3)
-            
