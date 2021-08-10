@@ -24,4 +24,3 @@ class Test_first_word(unittest.TestCase):
     def test_errors(self, input_data, expected):
         with self.assertRaises(expected):
             task1_hw2.first_word(input_data)
-            
