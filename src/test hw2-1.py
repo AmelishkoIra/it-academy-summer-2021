@@ -1,6 +1,7 @@
-import unittest
 import ddt
+import unittest
 import task1_hw2
+
 
 @ddt.ddt
 class Test_continuous_chain(unittest.TestCase):
@@ -20,9 +21,7 @@ class Test_continuous_chain(unittest.TestCase):
         ([100], AttributeError),
         ({100}, AttributeError),
     )
-
     @ddt.unpack
     def test_2(self, input_data, expected):
         with self.assertRaises(expected):
             task1_hw2.continuous_chain(input_data)
-
