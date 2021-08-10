@@ -2,8 +2,8 @@
 
 
 def compare_lists(list_one, list_two):
+    """Функция сравнения списков.
 
-    """
     Функция считает, сколько различных чисел содержится одновременно как в
     первом списке, так и во втором.
     """
@@ -12,7 +12,8 @@ def compare_lists(list_one, list_two):
 
 
 def compare_lists_difference(list_one, list_two):
-    """
+    """Функция сравнения списков.
+
     Функция считает, сколько различных чисел входит только в один из списков.
     """
     compare_difference = list_one ^ list_two
@@ -20,7 +21,8 @@ def compare_lists_difference(list_one, list_two):
 
 
 def counting_different_words(text):
-    """
+    """Функция подсчета слов.
+
     Функция определяет, сколько различных слов содержится в веденном тексте.
     """
     text_without_spaces = text.split(" ")
@@ -29,7 +31,8 @@ def counting_different_words(text):
 
 
 def euclidean_algorithm(a, b):
-    """
+    """Функция подсчета НОД.
+
     Функция вычисляет наибольший общий делитель двух чисел при помощи
     алгоритма Евклида.
     """
