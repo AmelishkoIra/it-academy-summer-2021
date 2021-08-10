@@ -20,7 +20,7 @@ class Test_euclidean_algorithm(unittest.TestCase):
         ("2", "4", TypeError),
         ([2, 3], [3], TypeError),
         ({3}, {3}, TypeError),
-        ({3:5}, {5:15}, TypeError),
+        ({3: 5}, {5: 15}, TypeError),
     )
     @ddt.unpack
     def test_error(self, input_data1, input_data2, expected):
