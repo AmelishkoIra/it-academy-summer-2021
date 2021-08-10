@@ -93,7 +93,7 @@ def area_triangle(a, b, c):
 
 
 def first_word(words):
-    """ Находит первое слово в строке"""
+    """Находит первое слово в строке"""
 
     words_without_spaces = words.split()
     one_word = words_without_spaces[:1]
@@ -101,7 +101,7 @@ def first_word(words):
 
 
 def password_verification(password):
-    """Функция проверки пароля. 
+    """Функция проверки пароля.
 
     Условия проверки: длина пароля должна быть больше 6.
     Входные данные: Строка.
