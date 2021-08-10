@@ -20,7 +20,7 @@ class Test_different_words(unittest.TestCase):
         (123, AttributeError),
         ([1, 2, 3], AttributeError),
         ({1, 2, 3}, AttributeError),
-        ({1:5}, AttributeError),
+        ({1: 5}, AttributeError),
     )
     @ddt.unpack
     def test_error(self, input_data, expected):
