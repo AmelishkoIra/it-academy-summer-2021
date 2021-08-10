@@ -5,7 +5,7 @@ import unittest
 
 @ddt.ddt
 class Test_modular_inverses(unittest.TestCase):
-"""Test of modular inverses"""
+    """Test of modular inverses"""
 
     @ddt.data(
         (3, 200, 8967),
@@ -22,7 +22,7 @@ class Test_modular_inverses(unittest.TestCase):
         ("1", "2000", TypeError),
         ([3], [2000], TypeError),
         ({3}, {2000}, TypeError),
-        ({2:2}, 200, TypeError),
+        ({2: 2}, 200, TypeError),
     )
     @ddt.unpack
     def test_error(self, input_start, input_finish, expected):
