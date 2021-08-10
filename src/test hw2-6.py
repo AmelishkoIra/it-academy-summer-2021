@@ -1,6 +1,6 @@
-import unittest
 import ddt
 import task1_hw2
+import unittest
 
 
 @ddt.ddt
@@ -14,7 +14,6 @@ class Test_letter_count(unittest.TestCase):
         ([], (0, 0)),
         ("", (0, 0))
     )
-
     @ddt.unpack
     def test_value(self, input_data, expected):
         result = task1_hw2.letter_count(input_data)
@@ -24,7 +23,6 @@ class Test_letter_count(unittest.TestCase):
         (4446, TypeError),
         ({3}, TypeError),
     )
-
     @ddt.unpack
     def test_errors(self, input_data, expected):
         with self.assertRaises(expected):
