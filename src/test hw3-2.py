@@ -19,7 +19,7 @@ class Test_meet_element(unittest.TestCase):
     @ddt.data(
         ({3, 6, 6, 4}, AttributeError),
         (678, TypeError),
-        ({5:8}, AttributeError),
+        ({5: 8}, AttributeError),
     )
     @ddt.unpack
     def test_errors(self, input_data, expected):
