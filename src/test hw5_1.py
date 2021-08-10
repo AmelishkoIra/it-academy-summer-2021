@@ -19,7 +19,7 @@ class Test_input_number(unittest.TestCase):
     @ddt.data(
         ({34}, TypeError),
         ([9], TypeError),
-        ({3:2}, TypeError),
+        ({3: 2}, TypeError),
         ("32", TypeError),
     )
     @ddt.unpack
