@@ -21,7 +21,7 @@ class Test_number_pairs(unittest.TestCase):
         ([22, 77, 8], AttributeError),
         ("22 well 67", ValueError),
         ({34, 67, 67}, AttributeError),
-        ({2:6}, AttributeError),
+        ({2: 6}, AttributeError),
         ("", ValueError),
     )
     @ddt.unpack
