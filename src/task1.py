@@ -2,10 +2,10 @@
 
 
 class Payment_water_supply_sewerage:
-    """ Расчет стоимости услуг водонакала по обеспечению населения холодным и
-    горячим водоснабжением, а так же водоотведением"""
-
-
+    """ 
+    Расчет стоимости услуг водонакала по обеспечению населения холодным и
+    горячим водоснабжением, а так же водоотведением
+    """
     def __init__(self, number_of_people, hotwater1, hotwater2, coldwater1,
                  coldwater2):
         """
@@ -23,15 +23,13 @@ class Payment_water_supply_sewerage:
         self.coldwater2 = coldwater2
         self.number_of_people = number_of_people
         self.norm_water_per_person = 4
-        #расчет объма воды использованного за месяц
+        # расчет объма воды использованного за месяц
         self.water_volume = (self.coldwater2 - self.coldwater1) + \
                             (self.hotwater2 - self.hotwater1)
-        #расчет максимального объема воды за месяц, который могут использовать
-        #жильцы по льготной цене
+        # расчет максимального объема воды за месяц, который могут использовать
+        # жильцы по льготной цене
         self.preferential_volume = self.norm_water_per_person * \
                                    self.number_of_people
-
-
     def payment_coldwater(self):
         """Расчет стоимости за холодное водоснабжение.
 
