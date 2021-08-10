@@ -50,8 +50,9 @@ class Payment_water_supply_sewerage:
             payment_coldwater = round(payment_coldwater, 2)
         else:
             payment_coldwater = self.preferential_volume * \
-                preferential_price_coldwater + (self.water_volume - \
-                self.preferential_volume) * full_price_coldwater
+                preferential_price_coldwater + \
+                (self.water_volume - self.preferential_volume) * \
+                full_price_coldwater
             payment_coldwater = round(payment_coldwater, 2)
         print(f"Плата за холодное водоснабжение: {payment_coldwater} руб.")
 
@@ -87,8 +88,9 @@ class Payment_water_supply_sewerage:
             payment_sewers = round(payment_sewers, 2)
         else:
             payment_sewers = self.preferential_volume * \
-                preferential_price_sewerage + (self.water_volume - \
-                self.preferential_volume) * full_price_sewerage
+                preferential_price_sewerage + \
+                (self.water_volume - self.preferential_volume) * \
+                full_price_sewerage
             payment_sewers = round(payment_sewers, 2)
         print(f"Плата за водоотведение: {payment_sewers} руб.")
 
@@ -101,7 +103,7 @@ class Payment_water_supply_sewerage:
 
         all_payment_water_sewers = payment_coldwater + payment_hotwater + \
             payment_sewers
-        all_payment_water_sewer = round(all_payment_water_sewer, 2)
+        all_payment_water_sewers = round(all_payment_water_sewers, 2)
         print(f"Плата за услуги водоканала: {all_payment_water_sewers} руб.")
 
 
@@ -150,7 +152,7 @@ class Payment_electricity:
         price_electricity = 0.23
         payment_elec = (self.meter2_elecric - self.meter1_elecric) * \
             price_electricity
-        payment_ele = round(payment_ele, 2)
+        payment_elec = round(payment_elec, 2)
         print(f"Плата за электроэнергию: {payment_elec} руб.")
 
 
