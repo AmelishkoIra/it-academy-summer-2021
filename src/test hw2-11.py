@@ -1,6 +1,6 @@
-import unittest
 import ddt
 import task1_hw2
+import unittest
 
 
 @ddt.ddt
@@ -12,7 +12,6 @@ class Test_round_number(unittest.TestCase):
         ("998", 4),
         ("", 0),
     )
-
     @ddt.unpack
     def test_value(self, input_data, expected):
         result = task1_hw2.round_numbers(input_data)
@@ -22,3 +21,4 @@ class Test_round_number(unittest.TestCase):
     def test_errors(self):
         with self.assertRaises(TypeError):
             task1_hw2.round_numbers(444)
+            
