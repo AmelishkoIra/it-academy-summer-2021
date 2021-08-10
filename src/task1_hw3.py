@@ -48,17 +48,3 @@ def meet_once_element(lst):
             if str(i) not in lst_new:
                 lst_new += str(i)
     return lst_new
-
-
-def separation_zero(lst):
-    """Функция сортировки списка.
-
-    Функция перемещает все ненулевые элементы списка в левую часть списка, не
-    меняя их порядок, а все нули - в правую часть.
-    """
-
-    for i in lst:
-        if i == 0:
-            lst.remove(i)
-            lst.append(i)
-    return lst
