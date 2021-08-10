@@ -23,4 +23,3 @@ class Test_password(unittest.TestCase):
     def test_2(self, input_data, expectes):
         with self.assertRaises(expectes):
             task1_hw2.password_verification(input_data)
-            
