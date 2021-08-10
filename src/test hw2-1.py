@@ -1,6 +1,6 @@
 import ddt
-import unittest
 import task1_hw2
+import unittest
 
 
 @ddt.ddt
