@@ -1,5 +1,5 @@
 def modular_inverses(start, finish):
-    """ Обратные по модулю числа.
+    """Обратные по модулю числа.
 
     I(n) - наибольшое положительное число m меньше n-1, так что число,
     обратное числу m по модулю n равно самому же m. Функция находит сумму I(n)
@@ -10,14 +10,14 @@ def modular_inverses(start, finish):
     """
 
     count = []
-    for n in range(start, finish+1):
-        for m in range(n-2, 1, -1):
+    for n in range(start, finish + 1):
+        for m in range(n - 2, 1, -1):
             if m * m % n == 1:
                 count.append(m)
                 break
     return sum(count)
 
 
-#я так и не нашла, как ускорить эту функцию. Какие находила варианты,
+# я так и не нашла, как ускорить эту функцию. Какие находила варианты,
 # особо не помогали. Поэтому оставила так.
 modular_inverses(3, 20000000)
