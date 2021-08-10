@@ -1,6 +1,6 @@
-import unittest
 import ddt
 import task1_hw2
+import unittest
 
 
 @ddt.ddt
@@ -14,7 +14,6 @@ class Test_palindrom(unittest.TestCase):
         ("cooK", False),
         ({4}, False)
     )
-
     @ddt.unpack
     def test_value(self, input_data, expected):
         result = task1_hw2.palindrom(input_data)
