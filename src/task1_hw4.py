@@ -1,4 +1,4 @@
-"""Функции из Homework4 для тестирования"""
+"""функции из Homework4 для тестирования"""
 
 
 def compare_lists(list_one, list_two):
