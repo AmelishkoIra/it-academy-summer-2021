@@ -1,6 +1,7 @@
-import unittest
 import ddt
 import task4
+import unittest
+
 
 @ddt.ddt
 class Test_modular_inverses(unittest.TestCase):
@@ -11,7 +12,6 @@ class Test_modular_inverses(unittest.TestCase):
         (2, 1000, 278049),
         (3, 20000, 132759233),
     )
-
     @ddt.unpack
     def test_value(self, input_start, input_finish, expected):
         """Test of input values"""
@@ -24,7 +24,6 @@ class Test_modular_inverses(unittest.TestCase):
         ({3}, {2000}, TypeError),
         ({2:2}, 200, TypeError),
     )
-
     @ddt.unpack
     def test_error(self, input_start, input_finish, expected):
         """Test of errors"""
@@ -33,4 +32,3 @@ class Test_modular_inverses(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
