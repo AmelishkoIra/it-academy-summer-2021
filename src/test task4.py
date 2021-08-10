@@ -30,5 +30,6 @@ class Test_modular_inverses(unittest.TestCase):
         with self.assertRaises(expected):
             task4.modular_inverses(input_start, input_finish)
 
+            
 if __name__ == '__main__':
     unittest.main()
