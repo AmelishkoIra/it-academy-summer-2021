@@ -17,7 +17,6 @@ class Test_round_number(unittest.TestCase):
         result = task1_hw2.round_numbers(input_data)
         self.assertEqual(result, expected)
 
-
     def test_errors(self):
         with self.assertRaises(TypeError):
             task1_hw2.round_numbers(444)
