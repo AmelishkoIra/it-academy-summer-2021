@@ -1,6 +1,6 @@
-import unittest
 import ddt
 import task1_hw3
+import unittest
 
 
 @ddt.ddt
@@ -11,7 +11,6 @@ class Test_meet_element(unittest.TestCase):
         ("1, 4, 5", "145"),
         ([5, 5, 5, 9], "9")
     )
-
     @ddt.unpack
     def test_value(self, input_data, expected):
         result = task1_hw3.meet_once_element(input_data)
@@ -22,10 +21,7 @@ class Test_meet_element(unittest.TestCase):
         (678, TypeError),
         ({5:8}, AttributeError),
     )
-
     @ddt.unpack
     def test_errors(self, input_data, expected):
         with self.assertRaises(expected):
             task1_hw3.meet_once_element(input_data)
-
-
