@@ -8,6 +8,7 @@ class TooManyErrors(Exception):
     """
     pass
 
+
 def parametric_decorator(n):
     def simple_decorator(func):
         count = 0
@@ -23,7 +24,7 @@ def parametric_decorator(n):
                     raise TooManyErrors("Many calls")
             except TooManyErrors as many:
                 return many
-            except:
+            except Exception:
                 count = 0
                 return "Error in the decorated function"
 
@@ -31,9 +32,11 @@ def parametric_decorator(n):
 
     return simple_decorator
 
+
 @parametric_decorator(3)
 def division(a, b):
     return a / b
+
 
 print(division(4, 9))
 print(division(4, 4))
