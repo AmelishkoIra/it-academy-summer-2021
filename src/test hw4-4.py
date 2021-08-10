@@ -1,6 +1,7 @@
-import unittest
 import ddt
 import task1_hw4
+import unittest
+
 
 @ddt.ddt
 class Test_lists_dif(unittest.TestCase):
@@ -9,7 +10,6 @@ class Test_lists_dif(unittest.TestCase):
         ({4, 9, 0}, {4, 7, 3}, 4),
         ({3}, {6}, 2),
     )
-
     @ddt.unpack
     def test_value(self, input_data1, input_data2, expected):
         result = task1_hw4.compare_lists_difference(input_data1, input_data2)
@@ -21,7 +21,6 @@ class Test_lists_dif(unittest.TestCase):
         (456, 478, TypeError),
         ({}, {}, TypeError),
     )
-
     @ddt.unpack
     def test_error(self, input_data1, input_data2, expected):
         with self.assertRaises(expected):
