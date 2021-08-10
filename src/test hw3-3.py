@@ -1,6 +1,7 @@
-import unittest
 import ddt
 import task1_hw3
+import unittest
+
 
 @ddt.ddt
 class Test_number_pairs(unittest.TestCase):
@@ -10,7 +11,6 @@ class Test_number_pairs(unittest.TestCase):
         ("33 33 33 67", "3 пары чисел"),
         ("66 78 95", "0 пары чисел")
     )
-
     @ddt.unpack
     def test_value(self, input_data, expected):
         result = task1_hw3.number_of_pairs(input_data)
@@ -24,7 +24,6 @@ class Test_number_pairs(unittest.TestCase):
         ({2:6}, AttributeError),
         ("", ValueError),
     )
-
     @ddt.unpack
     def test_error(self, input_data, expected):
         with self.assertRaises(expected):
