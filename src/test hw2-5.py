@@ -1,3 +1,7 @@
+"""
+тест на функцию del_spacе, которая удаляет из строки
+повторяющиеся символы и пробелы.
+"""
 import ddt
 import task1_hw2
 import unittest
@@ -13,6 +17,7 @@ class Test_del_space(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
+        """позитивный тест""" 
         result = task1_hw2.del_space(input_data)
         self.assertEqual(result, expected)
 
@@ -23,5 +28,6 @@ class Test_del_space(unittest.TestCase):
     )
     @ddt.unpack
     def test_errors(self, input_data, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw2.del_space(input_data)
