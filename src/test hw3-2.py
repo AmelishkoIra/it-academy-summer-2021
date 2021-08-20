@@ -1,10 +1,15 @@
+"""
+тест функции meet_once_element,которая выводит элементы списка,
+которые встречаются только один раз.
+"""
+
 import ddt
 import task1_hw3
 import unittest
 
 
 @ddt.ddt
-class Test_meet_element(unittest.TestCase):
+class TestMeetElement(unittest.TestCase):
 
     @ddt.data(
         ([3, 4, 4, 5], "35"),
@@ -13,6 +18,7 @@ class Test_meet_element(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
+        """позитивный тест"""
         result = task1_hw3.meet_once_element(input_data)
         self.assertEqual(result, expected)
 
@@ -23,5 +29,6 @@ class Test_meet_element(unittest.TestCase):
     )
     @ddt.unpack
     def test_errors(self, input_data, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw3.meet_once_element(input_data)
