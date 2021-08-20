@@ -7,7 +7,7 @@ import unittest
 
 @ddt.ddt
 class TestModularInverses(unittest.TestCase):
-    
+
     @ddt.data(
         (3, 200, 8967),
         (2, 1000, 278049),
