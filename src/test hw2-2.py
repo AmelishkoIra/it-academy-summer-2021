@@ -5,7 +5,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_password(unittest.TestCase):
+class TestPassword(unittest.TestCase):
 
     @ddt.data(
         ("000010", "Пароль не подходит"),
