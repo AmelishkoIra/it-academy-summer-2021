@@ -8,7 +8,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_long_word(unittest.TestCase):
+class TestLongWord(unittest.TestCase):
 
     @ddt.data(
         ("Hello girl", "Hello"),
