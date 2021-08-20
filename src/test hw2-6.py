@@ -1,3 +1,7 @@
+"""
+тест на функцию letter_count, которая производит
+подсчет букв.
+"""
 import ddt
 import task1_hw2
 import unittest
@@ -16,6 +20,7 @@ class Test_letter_count(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
+        """позитивный тест"""
         result = task1_hw2.letter_count(input_data)
         self.assertEqual(result, expected)
 
@@ -25,5 +30,6 @@ class Test_letter_count(unittest.TestCase):
     )
     @ddt.unpack
     def test_errors(self, input_data, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw2.letter_count(input_data)
