@@ -1,5 +1,5 @@
- """тест функции euclidean_algorithm подсчета НОД."""
-    
+"""тест функции euclidean_algorithm подсчета НОД."""
+
 import ddt
 import task1_hw4
 import unittest
