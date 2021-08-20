@@ -8,7 +8,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_bus(unittest.TestCase):
+class TestBus(unittest.TestCase):
 
     @ddt.data(
         (2, 4, 5, "необходимо 2 автобусa"),
