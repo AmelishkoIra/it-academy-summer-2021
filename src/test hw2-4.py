@@ -1,3 +1,7 @@
+"""
+тест на функцию long_word, которая Находит самое
+длинное слово в предложении.
+"""
 import ddt
 import task1_hw2
 import unittest
@@ -13,6 +17,7 @@ class Test_long_word(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
+        """позитивный тест"""
         result = task1_hw2.long_word(input_data)
         self.assertEqual(result, expected)
 
@@ -24,5 +29,6 @@ class Test_long_word(unittest.TestCase):
     )
     @ddt.unpack
     def test_errors(self, input_data, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw2.long_word(input_data)
