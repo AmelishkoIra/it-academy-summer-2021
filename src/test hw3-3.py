@@ -1,10 +1,14 @@
+"""тест функции number_of_pairs.
+Функция считает, сколько в списке пар элементов, равных друг другу.
+"""
+
 import ddt
 import task1_hw3
 import unittest
 
 
 @ddt.ddt
-class Test_number_pairs(unittest.TestCase):
+class TestNumberPairs(unittest.TestCase):
 
     @ddt.data(
         ("22 34 22", "1 пары чисел"),
@@ -13,6 +17,7 @@ class Test_number_pairs(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
+        """позитивный тест"""
         result = task1_hw3.number_of_pairs(input_data)
         self.assertEqual(result, expected)
 
@@ -26,5 +31,6 @@ class Test_number_pairs(unittest.TestCase):
     )
     @ddt.unpack
     def test_error(self, input_data, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw3.number_of_pairs(input_data)
