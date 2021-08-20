@@ -1,3 +1,7 @@
+"""
+тест на функцию continuous_chain, которая нахождит 
+самую длинную цепочку нулей и выводит ее длину.
+"""
 import ddt
 import task1_hw2
 import unittest
@@ -12,7 +16,7 @@ class Test_continuous_chain(unittest.TestCase):
         ("00111101000", 3)
     )
     @ddt.unpack
-    def test_1(self, input_data, expected):
+    def test_value(self, input_data, expected):
         result = task1_hw2.continuous_chain(input_data)
         self.assertEqual(result, expected)
 
@@ -22,6 +26,6 @@ class Test_continuous_chain(unittest.TestCase):
         ({100}, AttributeError),
     )
     @ddt.unpack
-    def test_2(self, input_data, expected):
+    def test_erorr(self, input_data, expected):
         with self.assertRaises(expected):
             task1_hw2.continuous_chain(input_data)
