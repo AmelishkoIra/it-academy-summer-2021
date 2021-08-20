@@ -8,7 +8,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_first_word(unittest.TestCase):
+class TestFirstWord(unittest.TestCase):
 
     @ddt.data(
         ("Hello guys", ["Hello"]),
