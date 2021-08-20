@@ -17,7 +17,7 @@ class TestDelSpace(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
-        """позитивный тест""" 
+        """позитивный тест"""
         result = task1_hw2.del_space(input_data)
         self.assertEqual(result, expected)
 
