@@ -1,10 +1,12 @@
+"""тест функции counting_different_words подсчета слов."""
+
 import ddt
 import task1_hw4
 import unittest
 
 
 @ddt.ddt
-class Test_different_words(unittest.TestCase):
+class TestDifferentWords(unittest.TestCase):
 
     @ddt.data(
         ("Hello world", 2),
@@ -13,6 +15,7 @@ class Test_different_words(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
+        """позитивный тест"""
         result = task1_hw4.counting_different_words(input_data)
         self.assertEqual(result, expected)
 
@@ -24,5 +27,6 @@ class Test_different_words(unittest.TestCase):
     )
     @ddt.unpack
     def test_error(self, input_data, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw4.counting_different_words(input_data)
