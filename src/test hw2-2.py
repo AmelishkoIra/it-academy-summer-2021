@@ -1,3 +1,4 @@
+"""тест функции password_verification, которая проверяет пароль."""
 import ddt
 import task1_hw2
 import unittest
@@ -13,6 +14,7 @@ class Test_password(unittest.TestCase):
     )
     @ddt.unpack
     def test_1(self, input_data, expected):
+        """позитивный тест"""
         result = task1_hw2.password_verification(input_data)
         self.assertEqual(result, expected)
 
@@ -21,5 +23,6 @@ class Test_password(unittest.TestCase):
     )
     @ddt.unpack
     def test_2(self, input_data, expectes):
+        """негативный тест"""
         with self.assertRaises(expectes):
             task1_hw2.password_verification(input_data)
