@@ -1,32 +1,30 @@
 """модель оплаты комунальных счетов"""
 
 
-PREFERENTIAL_PRICE_COLDWATER = 0.92
-# льготная цена за 1 метр кубический воды в руб.
-FULL_PRICE_COLDWATER = 1.1
-# полная цена за 1 метр кубический воды в руб.
-NORM_WATER_PERSON = 4
-# норма объема воды на одного жителя за месяц
-PRICE_HOTWATER = 1.65
-# полная цена за подогрев 1 метра кубического воды в руб.
-PREFERENTIAL_PRICE_SEWERAGE = 0.59
-# льготная цена за отведение 1 метра кубического сточной воды в руб.
-FULL_PRICE_SEWERAGE = 0.63
-# полная цена за отведение 1 метра кубического сточной воды в руб.
-PRICE_GAS = 0.5082
-# цена за 1 метр кубический газа в руб.
-PRICE_ELECTRICITY = 0.23
-# цена за 1 кВт*ч в руб.
-
-
-
 class PaymentWaterSupplySewerage:
     """Расчет водоснабжения и водоотведения.
 
     Расчет стоимости услуг водонакала по обеспечению населения холодным и
-    горячим водоснабжением, а так же водоотведением
+    горячим водоснабжением, а так же водоотведением.
+    
+    Args:
+    PREFERENTIAL_PRICE_COLDWATER -- льготная цена за 1 метр кубический
+    воды в руб.
+    FULL_PRICE_COLDWATER -- полная цена за 1 метр кубический воды в руб.
+    NORM_WATER_PERSON -- норма объема воды на одного жителя за месяц.
+    PRICE_HOTWATER -- полная цена за подогрев 1 метра кубического воды в руб.
+    PREFERENTIAL_PRICE_SEWERAGE -- льготная цена за отведение 1 метра
+    кубического сточной воды в руб.
+    FULL_PRICE_SEWERAGE -- полная цена за отведение 1 метра кубического
+    сточной воды в руб.
     """
-
+    PREFERENTIAL_PRICE_COLDWATER = 0.92
+    FULL_PRICE_COLDWATER = 1.1
+    NORM_WATER_PERSON = 4
+    PRICE_HOTWATER = 1.65
+    PREFERENTIAL_PRICE_SEWERAGE = 0.59
+    FULL_PRICE_SEWERAGE = 0.63
+    
     def __init__(self, number_of_people, hotwater1, hotwater2, coldwater1,
                  coldwater2):
         """Args:
@@ -49,7 +47,8 @@ class PaymentWaterSupplySewerage:
                             (self.hotwater2 - self.hotwater1)
         # расчет максимального объема воды за месяц, который могут использовать
         # жильцы по льготной цене
-        self.preferential_volume = NORM_WATER_PERSON * \
+        self.preferential_volume =\
+            PaymentWaterSupplySewerage.NORM_WATER_PERSON * \
             self.number_of_people
 
 
@@ -60,14 +59,15 @@ class PaymentWaterSupplySewerage:
         """
 
         if self.water_volume < self.preferential_volume:
-            pay_coldwater = self.water_volume * \
-                                PREFERENTIAL_PRICE_COLDWATER
+            pay_coldwater = \
+                self.water_volume * \
+                PaymentWaterSupplySewerage.PREFERENTIAL_PRICE_COLDWATER
             pay_coldwater = round(pay_coldwater, 2)
         else:
             pay_coldwater = self.preferential_volume * \
-                PREFERENTIAL_PRICE_COLDWATER + \
+                PaymentWaterSupplySewerage.PREFERENTIAL_PRICE_COLDWATER + \
                 (self.water_volume - self.preferential_volume) * \
-                FULL_PRICE_COLDWATER
+                PaymentWaterSupplySewerage.FULL_PRICE_COLDWATER
             pay_coldwater = round(pay_coldwater, 2)
         self.pay_coldwater = pay_coldwater
         print(f"Плата за холодное водоснабжение: {pay_coldwater} руб.")
@@ -77,7 +77,8 @@ class PaymentWaterSupplySewerage:
 
         pay_hotwater -- стоимость горячего водоснабжения в руб.
         """
-        pay_hotwater = (self.hotwater2 - self.hotwater1) * PRICE_HOTWATER
+        pay_hotwater = (self.hotwater2 - self.hotwater1) * \
+                       PaymentWaterSupplySewerage.PRICE_HOTWATER
         pay_hotwater = round(pay_hotwater, 2)
         self.pay_hotwater = pay_hotwater
         print(f"Плата за горячее водоснабжение: {pay_hotwater} руб.")
@@ -89,13 +90,13 @@ class PaymentWaterSupplySewerage:
         """
         if self.water_volume < self.preferential_volume:
             pay_sewers = self.water_volume * \
-                PREFERENTIAL_PRICE_SEWERAGE
+                PaymentWaterSupplySewerage.PREFERENTIAL_PRICE_SEWERAGE
             pay_sewers = round(pay_sewers, 2)
         else:
             pay_sewers = self.preferential_volume * \
-                PREFERENTIAL_PRICE_SEWERAGE + \
+                PaymentWaterSupplySewerage.PREFERENTIAL_PRICE_SEWERAGE + \
                 (self.water_volume - self.preferential_volume) * \
-                FULL_PRICE_SEWERAGE
+                PaymentWaterSupplySewerage.FULL_PRICE_SEWERAGE
             pay_sewers = round(pay_sewers, 2)
         self.pay_sewers = pay_sewers
         print(f"Плата за водоотведение: {pay_sewers} руб.")
@@ -112,8 +113,13 @@ class PaymentWaterSupplySewerage:
 
 
 class PaymentGasSupple:
-    """Расчет стоимости услуг газоснабжения населения."""
-
+    """Расчет стоимости услуг газоснабжения населения.
+    
+    Args:
+    PRICE_GAS -- цена за 1 метр кубический газа в руб.
+    """
+    PRICE_GAS = 0.5082
+    
     def __init__(self, meter1_gas, meter2_gas):
         """Args:
 
@@ -129,14 +135,19 @@ class PaymentGasSupple:
         pay_gas -- стоимость газаснабжения в руб.
         """
 
-        pay_gas = (self.meter2_gas - self.meter1_gas) * PRICE_GAS
+        pay_gas = (self.meter2_gas - self.meter1_gas) * \
+                  PaymentGasSupple.PRICE_GAS
         pay_gas = round(pay_gas, 2)
         print(f"Плата за газоснабжение: {pay_gas} руб.")
 
 
 class PaymentElectricity:
-    """Расчет стоимости использования электроэнергии населением."""
-
+    """Расчет стоимости использования электроэнергии населением.
+    Args:
+    PRICE_ELECTRICITY -- цена за 1 кВт*ч в руб.
+    """
+    PRICE_ELECTRICITY = 0.23
+    
     def __init__(self, meter1_elecric, meter2_elecric):
         """Args:
 
@@ -153,7 +164,7 @@ class PaymentElectricity:
         """
 
         pay_elec = (self.meter2_elecric - self.meter1_elecric) * \
-            PRICE_ELECTRICITY
+            PaymentElectricity.PRICE_ELECTRICITY
         pay_elec = round(pay_elec, 2)
         print(f"Плата за электроэнергию: {pay_elec} руб.")
 
@@ -173,14 +184,11 @@ class CommunalPayments():
     def run(self):
         """Вывод общей информации по всем платежам. """
 
-        self.water = PaymentWaterSupplySewerage(2, 20, 25, 10, 15)
         self.water.payment_coldwater()
         self.water.payment_hotwater()
         self.water.paymant_sewerage()
         self.water.all_payment_water()
-        self.gas = PaymentGasSupple(12, 18)
         self.gas.payment_gas()
-        self.elec = PaymentElectricity(12, 67)
         self.elec.payment_electricity()
 
 
