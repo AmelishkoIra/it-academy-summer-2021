@@ -9,7 +9,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_func_sum(unittest.TestCase):
+class TestFuncSum(unittest.TestCase):
 
     @ddt.data(
         (2, 2, 2, (4, 4)),
