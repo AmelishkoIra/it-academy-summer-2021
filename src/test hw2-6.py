@@ -8,7 +8,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_letter_count(unittest.TestCase):
+class TestLetterCount(unittest.TestCase):
 
     @ddt.data(
         ("Hello girl", (8, 1)),
