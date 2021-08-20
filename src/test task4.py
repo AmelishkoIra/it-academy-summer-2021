@@ -1,12 +1,13 @@
+"""test of modular inverses"""
+
 import ddt
 import task4
 import unittest
 
 
 @ddt.ddt
-class Test_modular_inverses(unittest.TestCase):
-    """Test of modular inverses"""
-
+class TestModularInverses(unittest.TestCase):
+    
     @ddt.data(
         (3, 200, 8967),
         (2, 1000, 278049),
