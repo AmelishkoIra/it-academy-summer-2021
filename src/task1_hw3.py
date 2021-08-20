@@ -10,12 +10,16 @@ def fizzbuzz(number):
     """
     if int(number) % 3 == 0 and int(number) % 5 == 0:
         return "FizzBuzz"
+        print("FizzBuzz")
     elif int(number) % 3 == 0:
         return "Fizz"
+        print("Fizz")
     elif int(number) % 5 == 0:
         return "Buzz"
+        print("Buzz")
     else:
         return number
+        print(number)
 
 
 def number_of_pairs(number):
