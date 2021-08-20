@@ -1,3 +1,7 @@
+"""
+тест функции bus, которая считает колличесиво автобусов 
+для поездки.
+"""
 import ddt
 import task1_hw2
 import unittest
@@ -13,6 +17,7 @@ class Test_bus(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data1, input_data2, input_data3, expected):
+        """позитивный тест"""
         result = task1_hw2.bus(input_data1, input_data2, input_data3)
         self.assertEqual(result, expected)
 
@@ -24,5 +29,6 @@ class Test_bus(unittest.TestCase):
     )
     @ddt.unpack
     def test_errors(self, input_data1, input_data2, input_data3, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw2.bus(input_data1, input_data2, input_data3)
