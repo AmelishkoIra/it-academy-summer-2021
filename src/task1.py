@@ -6,7 +6,7 @@ class PaymentWaterSupplySewerage:
 
     Расчет стоимости услуг водонакала по обеспечению населения холодным и
     горячим водоснабжением, а так же водоотведением.
-    
+
     Args:
     PREFERENTIAL_PRICE_COLDWATER -- льготная цена за 1 метр кубический
     воды в руб.
@@ -24,10 +24,11 @@ class PaymentWaterSupplySewerage:
     PRICE_HOTWATER = 1.65
     PREFERENTIAL_PRICE_SEWERAGE = 0.59
     FULL_PRICE_SEWERAGE = 0.63
-    
+
     def __init__(self, number_of_people, hotwater1, hotwater2, coldwater1,
                  coldwater2):
         """Args:
+        
         number_of_people -- количество людей зарегистрированных в квартире,
         hotwater1 -- показания счетчика горячей воды за прошлый месяц,
         hotwater2 -- показания счетчика горячей воды за текущий месяц,
@@ -50,7 +51,6 @@ class PaymentWaterSupplySewerage:
         self.preferential_volume =\
             PaymentWaterSupplySewerage.NORM_WATER_PERSON * \
             self.number_of_people
-
 
     def payment_coldwater(self):
         """Расчет стоимости за холодное водоснабжение.
@@ -103,6 +103,7 @@ class PaymentWaterSupplySewerage:
 
     def all_payment_water(self):
         """Расчет общей стоимости услуг водоканала.
+        
         all_pay_water_sewers -- стоимость водоснабжения и водоотведения
         в руб.
         """
@@ -143,6 +144,7 @@ class PaymentGasSupple:
 
 class PaymentElectricity:
     """Расчет стоимости использования электроэнергии населением.
+    
     Args:
     PRICE_ELECTRICITY -- цена за 1 кВт*ч в руб.
     """
