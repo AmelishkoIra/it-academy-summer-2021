@@ -18,7 +18,7 @@ class TestFuncSum(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, price_rub, price_kop, product, final_price):
-        """позитивный тест"""        
+        """позитивный тест"""
         result = task1_hw2.func_sum(price_rub, price_kop, product)
         self.assertEqual(result, final_price)
 
