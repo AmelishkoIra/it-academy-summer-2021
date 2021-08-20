@@ -8,7 +8,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_continuous_chain(unittest.TestCase):
+class TestContinuousChain(unittest.TestCase):
 
     @ddt.data(
         ("000010", 4),
