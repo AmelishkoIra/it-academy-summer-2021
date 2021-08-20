@@ -178,7 +178,7 @@ class CommunalPayments():
                  coldwater2, meter1_gas, meter2_gas, meter1_elecric,
                  meter2_elecric):
         self.water = PaymentWaterSupplySewerage(number_of_people, hotwater1,
-                        hotwater2, coldwater1, coldwater2)
+                                    hotwater2, coldwater1, coldwater2)
         self.gas = PaymentGasSupple(meter1_gas, meter2_gas)
         self.elec = PaymentElectricity(meter1_elecric, meter2_elecric)
 
