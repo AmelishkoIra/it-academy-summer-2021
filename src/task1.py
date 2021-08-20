@@ -28,7 +28,7 @@ class PaymentWaterSupplySewerage:
     def __init__(self, number_of_people, hotwater1, hotwater2, coldwater1,
                  coldwater2):
         """Args:
-        
+
         number_of_people -- количество людей зарегистрированных в квартире,
         hotwater1 -- показания счетчика горячей воды за прошлый месяц,
         hotwater2 -- показания счетчика горячей воды за текущий месяц,
@@ -78,7 +78,7 @@ class PaymentWaterSupplySewerage:
         pay_hotwater -- стоимость горячего водоснабжения в руб.
         """
         pay_hotwater = (self.hotwater2 - self.hotwater1) * \
-                       PaymentWaterSupplySewerage.PRICE_HOTWATER
+            PaymentWaterSupplySewerage.PRICE_HOTWATER
         pay_hotwater = round(pay_hotwater, 2)
         self.pay_hotwater = pay_hotwater
         print(f"Плата за горячее водоснабжение: {pay_hotwater} руб.")
@@ -103,7 +103,7 @@ class PaymentWaterSupplySewerage:
 
     def all_payment_water(self):
         """Расчет общей стоимости услуг водоканала.
-        
+
         all_pay_water_sewers -- стоимость водоснабжения и водоотведения
         в руб.
         """
@@ -115,12 +115,12 @@ class PaymentWaterSupplySewerage:
 
 class PaymentGasSupple:
     """Расчет стоимости услуг газоснабжения населения.
-    
+
     Args:
     PRICE_GAS -- цена за 1 метр кубический газа в руб.
     """
     PRICE_GAS = 0.5082
-    
+
     def __init__(self, meter1_gas, meter2_gas):
         """Args:
 
@@ -137,19 +137,19 @@ class PaymentGasSupple:
         """
 
         pay_gas = (self.meter2_gas - self.meter1_gas) * \
-                  PaymentGasSupple.PRICE_GAS
+            PaymentGasSupple.PRICE_GAS
         pay_gas = round(pay_gas, 2)
         print(f"Плата за газоснабжение: {pay_gas} руб.")
 
 
 class PaymentElectricity:
     """Расчет стоимости использования электроэнергии населением.
-    
+
     Args:
     PRICE_ELECTRICITY -- цена за 1 кВт*ч в руб.
     """
     PRICE_ELECTRICITY = 0.23
-    
+
     def __init__(self, meter1_elecric, meter2_elecric):
         """Args:
 
@@ -178,10 +178,9 @@ class CommunalPayments():
                  coldwater2, meter1_gas, meter2_gas, meter1_elecric,
                  meter2_elecric):
         self.water = PaymentWaterSupplySewerage(number_of_people, hotwater1,
-                                hotwater2, coldwater1, coldwater2)
+            hotwater2, coldwater1, coldwater2)
         self.gas = PaymentGasSupple(meter1_gas, meter2_gas)
         self.elec = PaymentElectricity(meter1_elecric, meter2_elecric)
-
 
     def run(self):
         """Вывод общей информации по всем платежам. """
