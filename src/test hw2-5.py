@@ -8,7 +8,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_del_space(unittest.TestCase):
+class TestDelSpace(unittest.TestCase):
 
     @ddt.data(
         ("Hello girl", "helogir"),
