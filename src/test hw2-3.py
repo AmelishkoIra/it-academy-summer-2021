@@ -1,3 +1,8 @@
+"""
+тест на функцию func_sum, которая расчитывает общую цену
+в рублях и копейках за товар.
+"""
+
 import ddt
 import task1_hw2
 import unittest
@@ -13,6 +18,7 @@ class Test_func_sum(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, price_rub, price_kop, product, final_price):
+        """позитивный тест"""        
         result = task1_hw2.func_sum(price_rub, price_kop, product)
         self.assertEqual(result, final_price)
 
@@ -24,5 +30,6 @@ class Test_func_sum(unittest.TestCase):
     )
     @ddt.unpack
     def test_errors(self, price_rub, price_kop, product, final_price):
+        """негативный тест"""
         with self.assertRaises(final_price):
             task1_hw2.func_sum(price_rub, price_kop, product)
