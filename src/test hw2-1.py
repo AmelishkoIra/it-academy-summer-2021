@@ -17,6 +17,7 @@ class Test_continuous_chain(unittest.TestCase):
     )
     @ddt.unpack
     def test_value(self, input_data, expected):
+        """позитивный тест"""
         result = task1_hw2.continuous_chain(input_data)
         self.assertEqual(result, expected)
 
@@ -27,5 +28,6 @@ class Test_continuous_chain(unittest.TestCase):
     )
     @ddt.unpack
     def test_erorr(self, input_data, expected):
+        """негативный тест"""
         with self.assertRaises(expected):
             task1_hw2.continuous_chain(input_data)
