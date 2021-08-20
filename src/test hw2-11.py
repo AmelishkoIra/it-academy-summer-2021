@@ -8,7 +8,7 @@ import unittest
 
 
 @ddt.ddt
-class Test_round_number(unittest.TestCase):
+class TestRoundNumber(unittest.TestCase):
 
     @ddt.data(
         ("456", 1),
