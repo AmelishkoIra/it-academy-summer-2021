@@ -1,19 +1,45 @@
-# Используйте генератор списков чтобы получить следующий: ['ab', 'ac', 'ad', 'bb', 'bc', 'bd'].
-# Используйте на предыдущий список slice чтобы получить следующий: ['ab', 'ad', 'bc'].
-# Используйте генератор списков чтобы получить следующий ['1a', '2a', '3a', '4a'].
-# Одной строкой удалите элемент  '2a' из прошлого списка и напечатайте его.
-# Скопируйте список и добавьте в него элемент '2a' так чтобы в исходном списке этого элемента не было.
+class TooManyErrors(Exception):
+    """Декоратор исключений.
 
-lst = "ab"
-lst1 = "bcd"
-lst2 = [i + j for i in lst for j in lst1]
-print(lst2)
-print(lst2[::2])
-lst3 = "1234"
-lst4 = [i + "a" for i in lst3]
-print(lst4)
-lst4.remove("2a")
-print(lst4)
-lst4.copy()
-lst4.append("2a")
-print(lst4)
+    Декоратор, который вызывает задекорированную функцию пока она
+    не выполнится без исключений (но не более n раз - параметр декоратора).
+    Если превышено количество попыток, должно быть возбуждено исключение
+    типа TooManyErrors.
+    """
+    pass
+
+
+def parametric_decorator(n):
+    def simple_decorator(func):
+        count = 0
+
+        def wrapper(*args, **kwargs):
+            nonlocal count
+            try:
+                if count < n:
+                    result = func(*args, **kwargs)
+                    count += 1
+                    return result
+                else:
+                    raise TooManyErrors("Many calls")
+            except TooManyErrors as many:
+                return many
+            except Exception:
+                count = 0
+                return "Error in the decorated function"
+
+        return wrapper
+
+    return simple_decorator
+
+
+@parametric_decorator(3)
+def division(a, b):
+    return a / b
+
+
+print(division(4, 9))
+print(division(4, 4))
+print(division(4, 6))
+print(division(4, 1))
+print(division(4, 0))

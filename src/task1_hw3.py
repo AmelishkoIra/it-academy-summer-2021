@@ -1,24 +1,30 @@
-"""Функции из Homework3 для тестирования"""
+"""функции из Homework3 для тестирования"""
 
 
 def fizzbuzz(number):
-    """
+    """Функция fizzbuzz.
+
     Функция печатает цифры от 1 до 100, но вместо чисел, кратных 3 пишет Fizz,
     вместо чисел кратный 5 пишет Buzz, а вместо чисел одновременно кратных
     и 3 и 5 - FizzBuzz.
     """
     if int(number) % 3 == 0 and int(number) % 5 == 0:
         return "FizzBuzz"
+        print("FizzBuzz")
     elif int(number) % 3 == 0:
         return "Fizz"
+        print("Fizz")
     elif int(number) % 5 == 0:
         return "Buzz"
+        print("Buzz")
     else:
         return number
+        print(number)
 
 
 def number_of_pairs(number):
-    """
+    """Функция расчеиа пар чисел.
+
     Функция считает, сколько в списке пар элементов, равных друг другу.
     Входные данные - строка из чисел, разделенная пробелами. Выходные данные -
     количество пар.
@@ -34,7 +40,8 @@ def number_of_pairs(number):
 
 
 def meet_once_element(lst):
-    """
+    """Функция проверки элементов списка на повтор.
+
     Функция выводит элементы списка, которые встречаются только один раз.
     Элементы выводятся в том порядке, в котором они встречаются в списке.
     """
@@ -45,16 +52,3 @@ def meet_once_element(lst):
             if str(i) not in lst_new:
                 lst_new += str(i)
     return lst_new
-
-
-def separation_zero(lst):
-    """
-    Функция перемещает все ненулевые элементы списка в левую часть списка, не
-    меняя их порядок, а все нули - в правую часть.
-    """
-
-    for i in lst:
-        if i == 0:
-            lst.remove(i)
-            lst.append(i)
-    return lst
